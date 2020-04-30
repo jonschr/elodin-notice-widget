@@ -1,0 +1,33 @@
+{
+    "name": "elodin-notice-widget",
+    "version": "0.1.2",
+    "description": "GitHub project link: https://github.com/jonschr/elodin-notice-widget.",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://jonschr@github.com/jonschr/elodin-notice-widget.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jonschr/elodin-notice-widget/issues"
+    },
+    "homepage": "https://github.com/jonschr/elodin-notice-widget#readme",
+    "dependencies": {
+        "cssnano": "^4.1.10",
+        "dependencies": "0.0.1",
+        "gulp-load-plugins": "^2.0.3",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.5"
+    },
+    "devDependencies": {
+        "gulp-minify": "^3.1.0",
+        "gulp-sass-glob": "^1.1.0"
+    }
+}
