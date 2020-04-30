@@ -1,0 +1,1 @@
+jQuery(document).ready((function(e){e("a.close-notice").click((function(i){i.preventDefault(),e.cookie("notice_hidden","true",{expires:.25,path:"/"}),e("#site-notice").hide()}))}));
