@@ -17,6 +17,10 @@ jQuery(document).ready(function ($) {
         $('#site-notice').removeClass('show');
     });
 
+    $('#site-notice .textwidget a').click(function (e) {
+        $.cookie("notice_hidden", "true", { expires: 0.25, path: '/' });
+    });
+
     $('a.close-bar').click(function (e) {
         e.preventDefault();
         $.cookie("bar_hidden", "true", { expires: 0.25, path: '/' });
