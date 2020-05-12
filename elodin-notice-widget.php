@@ -4,7 +4,7 @@
 	Plugin Name: Elodin Notice Widget
 	Plugin URI: https://elod.in
     Description: Just another notice widget plugin
-	Version: 0.1.2
+	Version: 0.1.3
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ELODIN_NOTICE_WIDGET', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_NOTICE_WIDGET_VERSION', '0.1.2' );
+define ( 'ELODIN_NOTICE_WIDGET_VERSION', '0.1.3' );
 
 add_action( 'wp_enqueue_scripts', 'elodin_notice_enqueue_everything' );
 function elodin_notice_enqueue_everything() {
