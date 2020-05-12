@@ -46,17 +46,58 @@ function elodin_notice_enqueue_everything() {
 add_action( 'widgets_init', 'elodin_notice_register_widget_area' );
 function elodin_notice_register_widget_area() {
     register_sidebar( array(
-        'name'          => __( 'Site Notice', 'elodin_notice_widget' ),
+        'name'          => __( 'Site notice (popup overlay)', 'elodin_notice_widget' ),
         'id'            => 'site-notice',
-        'before_widget' => '<div id="site-notice" class="site-notice"><div class="notice-wrap"><a href="#" class="close-notice"><span></span><span></span></a>',
-        'after_widget'  => '</div></div>',
+        'description'   => 'A popup overlay that appears once every few hours for users',
+        'before_widget' => '',
+        'after_widget'  => '',
         'before_title'  => '<h2 class="notice-title">',
         'after_title'   => '</h2>',
     ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Site notice (bottom bar)', 'elodin_notice_widget' ),
+        'id'            => 'site-bar',
+        'description'   => 'A bar at the bottom of the screen that allows access to the main notice and shows a shortened version of the message',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '<strong class="site-bar-title">',
+        'after_title'   => '</strong> ',
+    ) );
+}
+
+add_action( 'wp_footer', 'elodin_notice_display_site_notice' );
+function elodin_notice_display_site_notice() {
+
+    if ( !is_active_sidebar( 'site-bar' ) ) 
+        return;
+
+    echo '<div id="site-notice" class="site-notice"><div class="notice-wrap"><a href="#" class="close-notice"><span></span><span></span></a>';
+        dynamic_sidebar( 'site-notice' );
+    echo '</div></div>';
 }
 
 add_action( 'wp_footer', 'elodin_notice_display_widget_area' );
 function elodin_notice_display_widget_area() {
-    if ( !$_COOKIE["notice_hidden"] )
-        dynamic_sidebar( 'site-notice' );
+
+    //* bail if this sidebar isn't active
+    if ( !is_active_sidebar( 'site-bar' ) ) 
+        return;
+
+    echo '<div id="site-notice-bar" class="site-bar"><div class="site-bar-wrap"><a href="#" class="close-bar"><span></span><span></span></a>';
+        dynamic_sidebar( 'site-bar' );
+    echo '</div></div>';
+    echo '<a href="#" class="show-bar">Show site notice</div>';
+
+    //* bail on showing the link to the notice if there isn't a notice
+    if ( !is_active_sidebar( 'site-notice' ) ) 
+        return;
+
+    ?>
+    <script>
+        jQuery(document).ready(function( $ ) {
+            $('.site-bar-wrap p').append(' <a href="#" class="show-notice">More information</a>');	
+        });
+    </script>
+    <?php
 }
