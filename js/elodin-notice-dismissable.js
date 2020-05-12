@@ -1,5 +1,8 @@
 jQuery(document).ready(function ($) {
 
+    $('#site-notice').addClass('show');
+    $('#site-notice-bar').addClass('show');
+
     if ($.cookie("notice_hidden")) {
         $('#site-notice').removeClass('show');
     }

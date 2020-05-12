@@ -72,9 +72,9 @@ function elodin_notice_display_site_notice() {
     if ( !is_active_sidebar( 'site-bar' ) ) 
         return;
 
-        ?>
-        <style>.site-notice { display: none; }</style>
-        <?php
+    ?>
+    <style>.site-notice { display: none; }</style>
+    <?php
 
     echo '<div id="site-notice" class="site-notice"><div class="notice-wrap"><a href="#" class="close-notice"><span></span><span></span></a>';
         dynamic_sidebar( 'site-notice' );
@@ -87,6 +87,10 @@ function elodin_notice_display_widget_area() {
     //* bail if this sidebar isn't active
     if ( !is_active_sidebar( 'site-bar' ) ) 
         return;
+
+    ?>
+    <style>.site-bar { display: none; }</style>
+    <?php
 
     echo '<div id="site-notice-bar" class="site-bar"><div class="site-bar-wrap"><a href="#" class="close-bar"><span></span><span></span></a>';
         dynamic_sidebar( 'site-bar' );
