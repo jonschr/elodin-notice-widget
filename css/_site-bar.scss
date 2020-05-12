@@ -1,9 +1,10 @@
 .site-bar {
 
-    &.hide {
-        display: none;
+    &.show {
+        display: block !important;
     }
 
+    box-shadow: 0 0 30px 0 rgba(black, 0.07);
     padding: 15px 30px;
     position: fixed;
     left: 0;

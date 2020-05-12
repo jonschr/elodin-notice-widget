@@ -1,9 +1,10 @@
 .site-notice {
 
-    &.hide {
-        display: none;
+    &.show {
+        display: flex !important;
     }
 
+    display: block;
     position: fixed;
     top: 0;
     left: 0;

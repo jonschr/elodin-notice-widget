@@ -72,6 +72,10 @@ function elodin_notice_display_site_notice() {
     if ( !is_active_sidebar( 'site-bar' ) ) 
         return;
 
+        ?>
+        <style>.site-notice { display: none; }</style>
+        <?php
+
     echo '<div id="site-notice" class="site-notice"><div class="notice-wrap"><a href="#" class="close-notice"><span></span><span></span></a>';
         dynamic_sidebar( 'site-notice' );
     echo '</div></div>';
