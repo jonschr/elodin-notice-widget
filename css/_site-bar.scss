@@ -14,6 +14,10 @@
     background-color: white;
     z-index: 20;
 
+    @include mobile {
+        padding: 15px 50px 15px 15px;
+    }
+
     .site-bar-wrap {
         max-width: 1200px;
         margin: 0 auto;
@@ -69,4 +73,11 @@
     text-decoration: none;
     font-size: 15px;
     box-shadow: 0 0 30px 0 rgba(black, 0.07);
+
+    @include mobile {
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 15px;
+        font-size: 14px;
+    }
 }
