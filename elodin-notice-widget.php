@@ -31,6 +31,17 @@ define( 'ELODIN_NOTICE_WIDGET', dirname( __FILE__ ) );
 // Define the version of the plugin
 define ( 'ELODIN_NOTICE_WIDGET_VERSION', '0.1.3' );
 
+// Updater
+require 'vendor/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/jonschr/elodin-notice-widget',
+	__FILE__,
+	'elodin-notice-widget'
+);
+
+// Optional: Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+
 add_action( 'wp_enqueue_scripts', 'elodin_notice_enqueue_everything' );
 function elodin_notice_enqueue_everything() {
 
