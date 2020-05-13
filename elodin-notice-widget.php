@@ -4,7 +4,7 @@
 	Plugin Name: Elodin Notice Widget
 	Plugin URI: https://elod.in
     Description: Just another notice widget plugin
-	Version: 0.1.3
+	Version: 0.1.4
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ELODIN_NOTICE_WIDGET', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_NOTICE_WIDGET_VERSION', '0.1.3' );
+define ( 'ELODIN_NOTICE_WIDGET_VERSION', '0.1.4' );
 
 // Updater
 require 'vendor/plugin-update-checker/plugin-update-checker.php';
@@ -42,6 +42,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 // Optional: Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('master');
 
+//* register the scripts
 add_action( 'wp_enqueue_scripts', 'elodin_notice_enqueue_everything' );
 function elodin_notice_enqueue_everything() {
 
@@ -80,7 +81,7 @@ function elodin_notice_register_widget_area() {
 add_action( 'wp_footer', 'elodin_notice_display_site_notice' );
 function elodin_notice_display_site_notice() {
 
-    if ( !is_active_sidebar( 'site-bar' ) ) 
+    if ( !is_active_sidebar( 'site-notice' ) ) 
         return;
 
     ?>
@@ -92,8 +93,8 @@ function elodin_notice_display_site_notice() {
     echo '</div></div>';
 }
 
-add_action( 'wp_footer', 'elodin_notice_display_widget_area' );
-function elodin_notice_display_widget_area() {
+add_action( 'wp_footer', 'elodin_notice_display_site_bar' );
+function elodin_notice_display_site_bar() {
 
     //* bail if this sidebar isn't active
     if ( !is_active_sidebar( 'site-bar' ) ) 
