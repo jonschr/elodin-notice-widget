@@ -1,9 +1,15 @@
 jQuery(document).ready(function ($) {
 
+
+    // get the height of the notice bar
+    var height = $('#site-notice-bar').outerHeight();
+
+    // add the body padding by default
+    $('body').css('padding-bottom', height + 'px');
+
     //* by default, with no cookies, show both the bar and the notice
     $('#site-notice').addClass('show');
     $('#site-notice-bar').addClass('show');
-
 
     //* if there's a cookie set saying "hide this," then hide the things
     if ($.cookie("notice_hidden") == 'true') {
@@ -12,6 +18,7 @@ jQuery(document).ready(function ($) {
 
     if ($.cookie("bar_hidden") == 'true') {
         $('#site-notice-bar').removeClass('show');
+        $('body').css('padding-bottom', '0px');
     }
 
     //* click events
@@ -38,6 +45,7 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         $.cookie("bar_hidden", "true", { expires: 0.25, path: '/' });
         $('#site-notice-bar').removeClass('show');
+        $('body').css('padding-bottom', '0px');
     });
 
     // click on the link to open the bar
@@ -45,6 +53,12 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         $.cookie("bar_hidden", "false", { expires: 0.25, path: '/' });
         $('#site-notice-bar').addClass('show');
+
+        // get the height of the notice bar
+        var height = $('#site-notice-bar').outerHeight();
+
+        // add the body padding by default
+        $('body').css('padding-bottom', height + 'px');
     });
 
 });
