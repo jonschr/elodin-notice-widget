@@ -15,10 +15,10 @@
     background-color: rgba(#333, 0.7);
     z-index: 9999999;
     padding: 20px;
-    overflow-y: auto;
 
     @media(max-width: 700px) {
-        padding: 10px;
+        padding: 0;
+        overflow-y: auto;
     }
 
     .notice-wrap {
@@ -31,13 +31,18 @@
         padding: 30px;
         font-weight: normal;
         position: relative;
-        max-height: calc(100vh - 40px);
+        max-height: calc(80vh);
         overflow-y: auto;
 
         @include mobile {
             box-shadow: none !important;
+            padding: 15px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             max-height: 100vh;
-            padding: 15px 50px 15px 15px;
         }
 
         :last-child {
@@ -55,6 +60,7 @@
 
     h2.notice-title {
         padding-top: 0;
+        padding-right: 40px;
     }
 
     ul,

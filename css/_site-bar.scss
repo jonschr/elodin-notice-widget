@@ -13,9 +13,12 @@
     top: auto;
     background-color: white;
     z-index: 20;
+    text-align: center;
 
     @include mobile {
-        padding: 15px 50px 15px 15px;
+        padding: 15px 45px 15px 15px;
+        -webkit-overflow-scrolling: touch;
+        text-align: left;
     }
 
     .site-bar-wrap {
